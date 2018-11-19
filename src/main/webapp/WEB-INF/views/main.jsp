@@ -41,8 +41,8 @@
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">问卷填写</span> <span
                             class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse" style="height: 0px;">
-                        <li><a href="#">沈阳工业大学本科生心理健康教育工作调查问卷</a></li>
-                        <li><a href="#">沈阳工业大学本科生学习情况满意度调查问卷</a></li>
+                        <li><a href="mentalQs">沈阳工业大学本科生心理健康教育工作调查问卷</a></li>
+                        <li><a href="learningQs">沈阳工业大学本科生学习情况满意度调查问卷</a></li>
                         <li><a href="#">沈阳工业大学本科生职业生涯规划满意度调查问卷</a></li>
                         <li><a href="#">沈阳工业大学辅导员考核学生测评表</a></li>
                     </ul>
@@ -74,168 +74,7 @@
 
             </nav>
         </div>
-        <div class="row wrapper border-bottom white-bg page-heading">
-            <div class="col-lg-10">
-                <h2>沈阳工业大学本科生心理健康教育工作调查问卷</h2>
-                <ol class="breadcrumb">
-                    <li>
-                        <a>问卷填写</a>
-                    </li>
-                    <li class="active">
-                        <strong>沈阳工业大学本科生心理健康教育工作调查问卷</strong>
-                    </li>
-                </ol>
-            </div>
-            <div class="col-lg-2">
-
-            </div>
-        </div>
-        <div class="wrapper wrapper-content animated fadeInRight">
-
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>请如实认真填写</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-lg-12">1. 你们班的班委中有心理委员么？</label>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option1" name="q1">
-                                                有
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option2" name="q1">
-                                                没有
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-12">2. 学院是否开展心理健康教育相关活动？</label>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option1" name="q2">
-                                                是
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option2" name="q2">
-                                                否
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-12">3.	学院是否向你介绍过校大学生心理发展指导中心的工作范畴和预约方式？</label>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option1" name="q3">
-                                                是
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option2" name="q3">
-                                                否
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-12">4.	对班级心理委员的工作是否满意？</label>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option1" name="q4">
-                                                满意
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option2" name="q4">
-                                                不满意
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-12">5.	你对本学院开展的心理健康教育工作满意么？</label>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option1" name="q5">
-                                                非常满意
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option2" name="q5">
-                                                基本满意
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div>
-                                            <label>
-                                                <input type="radio" value="option2" name="q5">
-                                                不满意
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-                                <div class="form-group">
-                                    <div class="col-sm-4 col-sm-offset-0">
-                                        <button class="btn btn-white" type="submit">重置</button>
-                                        <button class="btn btn-primary" type="submit">提交</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <jsp:include page="VotePage/${VotePage}.jsp"></jsp:include>
         <div class="footer">
             <div class="pull-right">
                 沈阳工业大学
@@ -268,8 +107,70 @@
             radioClass: 'iradio_square-green',
         });
     });
+    $("#submit").click(function () {
+        var cCode = "${currentUser.cCode}";
+        var instituteName;
+        switch(cCode.substring(2,4))
+        {
+            case "01":
+                instituteName = "机械工程学院";
+                break;
+            case "02":
+                instituteName = "材料科学与工程学院";
+                break;
+            case "03":
+                instituteName = "电气工程学院";
+                break;
+            case "04":
+                instituteName = "信息科学与工程学院";
+                break;
+            case "05":
+                instituteName = "管理学院";
+                break;
+            case "06":
+                instituteName = "文法学院";
+                break;
+            case "07":
+                instituteName = "理学院";
+                break;
+            case "08":
+                instituteName = "建筑与土木工程学院";
+                break;
+            case "09":
+                instituteName = "外国语学院";
+                break;
+            case "10":
+                instituteName = "经济学院";
+                break;
+            case "11":
+                instituteName = "国际交流中心";
+                break;
+            case "12":
+                instituteName = "软件学院";
+                break;
+            default:
+        }
+        var vote = {
+            "cCode": cCode,
+            "cInstituteName": instituteName
+        };
+        $(".QS").each(function(i){
+            var index = "q"+(++i);
+            var str = $(this).attr("name");
+            vote[str] = $("input[name="+index+"]:checked").val();
+        });
+        vote["VotePage"] = "${VotePage}";
+        $.ajax({
+            type: "POST",
+            url: "/submit",
+            data: JSON.stringify(vote),
+            contentType:"application/json",
+            dataType: "text",
+            success: function(data) {
+                alert(data.trim());
+            }
+        });
+    });
 </script>
-
-
 </body>
 </html>

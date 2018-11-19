@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <!--导入属性配置 -->
-    <properties resource="application.properties"/>
+    <!--&lt;!&ndash;导入属性配置 &ndash;&gt;-->
+    <!--<properties resource="application.yml"/>-->
 
     <context id="default" targetRuntime="MyBatis3" defaultModelType="flat">
 
@@ -18,8 +18,9 @@
 
         <!--jdbc的数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="${jdbc.url}" userId="${jdbc.username}"
-                        password="${jdbc.password}">
+                        connectionURL="jdbc:mysql://47.95.8.182:3306/sut?characterEncoding=UTF-8"
+                        userId="root"
+                        password="ZQ/*-+510470..">
         </jdbcConnection>
 
 
@@ -33,7 +34,7 @@
         <javaModelGenerator targetPackage="com.sut.vote.models"
                             targetProject="src/main/java">
             <!-- 是否对model添加 构造函数 -->
-            <property name="constructorBased" value="false"/>
+            <property name="constructorBased" value="true"/>
 
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
@@ -59,7 +60,7 @@
                              targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-        <table tableName="user" domainObjectName="User"
+        <table tableName="mental_questionnaire" domainObjectName="MentalQs"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
                enableDeleteByPrimaryKey="false"></table>

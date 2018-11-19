@@ -95,7 +95,7 @@
                     if(data.stateCode.trim() == "0") {
                         $("#info").text("提示:用户名或密码错误");
                     } else if(data.stateCode.trim() == "1"){
-                        $("#info").text("提示:登陆成功，跳转中...");
+                        $("#info").text("提示:登录成功，跳转中...");
                         window.location.href="/main";
                     }
                 }

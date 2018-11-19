@@ -11,7 +11,7 @@ public class VoteApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.println("211382199712200214".substring(12, 18));
+        System.out.println("151203426".substring(2, 4));
     }
 
 }

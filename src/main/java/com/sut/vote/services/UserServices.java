@@ -13,11 +13,11 @@ public class UserServices {
     private UserMapper userMapper;
 
     public boolean loginCheck(User user){
-        User tempUser = userMapper.selectByPrimaryKey("151203426");
+        User tempUser = userMapper.selectByPrimaryKey(user.getcCode());
         if(tempUser==null)
             return false;
         else
-            if(tempUser.getIdNo().substring(12,18).equals(user.getIdNo()))
+            if(tempUser.getcId().substring(12,18).equals(user.getcId()))
                 return true;
             else
                 return false;
