@@ -37,6 +37,10 @@ public class IndexController {
         if(userServices.loginCheck(user))
         {
             httpServletRequest.getSession().setAttribute("currentUser",user);
+            if(user.getcCode().equals("admin")) {
+                res.put("stateCode", "2");
+                return res;
+            }
             res.put("stateCode", "1");
         }
         else
@@ -81,5 +85,11 @@ public class IndexController {
         ModelAndView modelAndView = new ModelAndView("main");
         modelAndView.addObject("VotePage","learningQs");
         return modelAndView;
+    }
+    @RequestMapping(value = "/admin",method = RequestMethod.GET)
+    public String admin(HttpServletRequest httpServletRequest){
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
+            return "index";
+        return "admin";
     }
 }
