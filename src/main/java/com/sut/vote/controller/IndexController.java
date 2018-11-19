@@ -64,6 +64,9 @@ public class IndexController {
                 else
                     mentalServices.insert(mentalQs);
                 break;
+            case "learningQs":
+                //TODO
+                break;
         }
         return resp;
     }
