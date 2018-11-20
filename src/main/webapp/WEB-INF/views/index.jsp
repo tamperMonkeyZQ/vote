@@ -27,7 +27,7 @@
             <h2 class="font-bold">demo</h2>
 
             <p>
-                Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+                designed and precisely prepared admin theme with over 50 pages with extra new web app views.
             </p>
 
             <p>
