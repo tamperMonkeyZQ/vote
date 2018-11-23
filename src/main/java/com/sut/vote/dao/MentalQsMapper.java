@@ -44,4 +44,5 @@ public interface MentalQsMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(MentalQs record);
+    double caculator();
 }

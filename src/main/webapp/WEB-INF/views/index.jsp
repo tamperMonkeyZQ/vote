@@ -57,6 +57,8 @@
                 </div>
                 <p class="m-t">
                     <small>沈阳工业大学</small>
+                       <input type = "radio" name = "select" value = "学生" id = "student" name = "type">student
+                       <input type = "radio" name = "select" value = "老师" id = "teacher" name = "type">teacher
                 </p>
             </div>
         </div>
@@ -90,6 +92,7 @@
                     username:$("#username").val() ,
                     password: $("#password").val()
                 },
+
                 dataType: "json",
                 success: function(data) {
                     if(data.stateCode.trim() == "0") {
@@ -98,6 +101,10 @@
                         $("#info").text("提示:登录成功，跳转中...");
                         window.location.href="/main";
                     }
+                    else if(data.stateCode.trim() == "2"){
+                        $("#info").text("提示:登录成功，跳转中...");
+                        window.location.href="/adminSearch";
+                      }
                 }
             });
         }

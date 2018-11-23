@@ -140,4 +140,25 @@
       C_FIF_QUE = #{cFifQue,jdbcType=VARCHAR}
     where C_CODE = #{cCode,jdbcType=VARCHAR}
   </update>
+<select id="caculator" resultType="com.sut.vote.models.Result">
+    set @num = (
+    SELECT count(*) FROM mental_questionnaire
+    );
+    set @one = (
+    SELECT count(*) FROM mental_questionnaire WHERE C_FIRST_QUE = 'A'
+    );
+    set @two = (
+    SELECT count(*) FROM mental_questionnaire WHERE C_SEC_QUE = 'A'
+    );
+    set @three = (
+    SELECT count(*) FROM mental_questionnaire WHERE C_THR_QUE = 'A'
+    );
+    set @four = (
+    SELECT count(*) FROM mental_questionnaire WHERE C_FOR_QUE = 'A'
+    );
+    set @five = (
+    SELECT count(*) FROM mental_questionnaire WHERE C_FIF_QUE = 'A'
+    );
+    SELECT @one/@num as '1',@two/@num as '2',@three/@num as '3',@four/@num as '4',@five/@num as '5'
+  </select>
 </mapper>

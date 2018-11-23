@@ -1,9 +1,12 @@
 package com.sut.vote.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.sut.vote.dao.MentalQsMapper;
 import com.sut.vote.models.MentalQs;
+import com.sut.vote.models.Record;
 import com.sut.vote.models.User;
 import com.sut.vote.services.MentalServices;
+import com.sut.vote.services.RecordServices;
 import com.sut.vote.services.UserServices;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,10 @@ public class IndexController {
     UserServices userServices;
     @Autowired
     MentalServices mentalServices;
+    @Autowired
+    MentalQsMapper mentalQsMapper;
+    @Autowired
+    RecordServices recordServices;
     /**
      * 默认界面，返回登录界面
      * @param httpServletRequest
@@ -31,6 +38,7 @@ public class IndexController {
      */
     @RequestMapping(value = "",method = RequestMethod.GET)
     public String index(HttpServletRequest httpServletRequest){
+        /*System.out.println(mentalQsMapper.caculator());*/
         return "index";
     }
 
@@ -92,10 +100,12 @@ public class IndexController {
         switch (vote.getString("VotePage")){
             case "mentalQs":
                 MentalQs mentalQs = JSONObject.parseObject(vote.toJSONString(),MentalQs.class);
+                Record record = JSONObject.parseObject(vote.toJSONString(),Record.class);
                 if(mentalServices.ifCompete(mentalQs) == true)
                     resp = "您已经完成投票，无需再进行";
                 else
                     mentalServices.insert(mentalQs);
+                    recordServices.insert(record);
                 break;
             case "learningQs":
                 //TODO
@@ -130,10 +140,25 @@ public class IndexController {
      * @param httpServletRequest
      * @return
      */
-    @RequestMapping(value = "/admin",method = RequestMethod.GET)
-    public String admin(HttpServletRequest httpServletRequest){
-        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
-            return "index";
-        return "admin";
+    @RequestMapping(value = "/adminSearch",method = RequestMethod.GET)
+    public ModelAndView admin(HttpServletRequest httpServletRequest){
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null) {
+            return new ModelAndView("index");
+        }
+        ModelAndView modelAndView = new ModelAndView("adminSearch");
+        modelAndView.addObject("VotePage","learningResult");
+        return modelAndView;
     }
+    /**
+     * 管理员首页，默认返回辅导员查询结果
+     * @param httpServletRequest
+     * @return
+     */
+/*    @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
+    public ModelAndView adminSearch(HttpServletRequest httpServletRequest) throws ClassNotFoundException{
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
+            return new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("adminSearch");
+        return modelAndView;
+    }*/
 }

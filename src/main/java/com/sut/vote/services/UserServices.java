@@ -17,6 +17,9 @@ public class UserServices {
         if(tempUser==null)
             return false;
         else
+            if (user.getcCode().equals("admin"))
+                if (tempUser.getcId().equals(user.getcId()))
+                    return true;
             if(tempUser.getcId().substring(12,18).equals(user.getcId()))
                 return true;
             else
