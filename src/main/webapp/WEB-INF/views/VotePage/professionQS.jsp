@@ -185,7 +185,7 @@
                         <div class="hr-line-dashed"></div>
 
                         <div class="form-group">
-                            <label name="cForQue" class="col-lg-12 QS">4. 对自身职业（学业）规划状况是否满意？</label>
+                            <label name="cFifQue" class="col-lg-12 QS">5. 学院对学生进行职业发展规划引导情况？</label>
                            <div class="col-sm-10">
                                <div>
                                    <label>
