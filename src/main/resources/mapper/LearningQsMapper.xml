@@ -353,85 +353,85 @@
       C_TWE_THR_QUE = #{cTweThrQue,jdbcType=VARCHAR}
     where C_CODE = #{cCode,jdbcType=VARCHAR}
   </update>
- <!--学习问卷样本总数-->
-  <select id="option11" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'A'
-  </select>
-  <select id="option12" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option13" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'C'
-  </select>
-  <select id="option14" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'D'
-  </select>
-  <select id="option21" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'A'
-  </select>
-  <select id="option22" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option23" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'C'
-  </select>
-  <select id="option24" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'D'
-  </select>
-  <select id="option31" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option32" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option33" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option34" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option41" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option42" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option43" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option44" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option51" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option52" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option53" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option54" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option61" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option162" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option1" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option1" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>
-  <select id="option1" resultType="int">
-    select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'
-  </select>-->
+ <!--&lt;!&ndash;学习问卷样本总数&ndash;&gt;-->
+  <!--<select id="option11" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'A'-->
+  <!--</select>-->
+  <!--<select id="option12" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option13" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'C'-->
+  <!--</select>-->
+  <!--<select id="option14" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'D'-->
+  <!--</select>-->
+  <!--<select id="option21" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'A'-->
+  <!--</select>-->
+  <!--<select id="option22" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option23" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'C'-->
+  <!--</select>-->
+  <!--<select id="option24" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'D'-->
+  <!--</select>-->
+  <!--<select id="option31" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option32" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option33" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option34" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option41" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option42" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option43" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option44" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option51" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option52" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option53" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option54" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option61" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option162" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option1" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option1" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
+  <!--<select id="option1" resultType="int">-->
+    <!--select count(*) from learning_questionnaire where C_FIRST_QUE = 'B'-->
+  <!--</select>-->
 
 
-  <select id="calculate" resultType="int">
-    select count(*) from learning_questionnaire
-  </select>
+  <!--<select id="calculate" resultType="int">-->
+    <!--select count(*) from learning_questionnaire-->
+  <!--</select>-->
 </mapper>

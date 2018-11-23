@@ -195,11 +195,11 @@ $(function(){
  arr[7] = new Array("杜振君","陈文波","田晓辉","陈蕊","艾明珠","牟春景");
  arr[8] = new Array("付博文","辛显华","卢海章","杨宁宁","王红红","肇辛格");
  arr[9] = new Array("董润芸","何剑非","王晓茜");
- arr[10] = new Array("郝艳君","薛政","李函书","张涛","于雅洁","王伟","肖博","张晋源");
- arr[11] = new Array("张岩","冀录","张金龙");
+ arr[10] = new Array("张岩","冀录","张金龙");
+ arr[11] = new Array("郝艳君","薛政","李函书","张涛","于雅洁","王伟","肖博","张晋源");
   $("#institute").change(function(){
   $("#teacher").empty();
-  var val = this.value;
+  var val = this.value - 1;
   $.each(arr,function(i,n){
   if(val == i){
      $.each(arr[i],function(j,m){
