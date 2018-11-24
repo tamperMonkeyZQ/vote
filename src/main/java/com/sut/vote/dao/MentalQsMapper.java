@@ -49,4 +49,5 @@ public interface MentalQsMapper {
     int updateByPrimaryKey(MentalQs record);
     double caculator();
     List<Result> selectResult();
+    void processCalc();
 }

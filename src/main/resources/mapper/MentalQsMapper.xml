@@ -164,4 +164,7 @@
   <select id = "selectResult" resultType="com.sut.vote.models.Result">
     select * from result_men
   </select>
+  <select id="processCalc">
+    call men_calc()
+  </select>
 </mapper>

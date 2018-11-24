@@ -1,5 +1,6 @@
 package com.sut.vote.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sut.vote.dao.MentalQsMapper;
 import com.sut.vote.models.*;
@@ -7,7 +8,6 @@ import com.sut.vote.services.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,8 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class IndexController {
@@ -99,7 +101,8 @@ public class IndexController {
      */
     @RequestMapping(value="/submit",method = RequestMethod.POST)
     public @ResponseBody Object submit(HttpServletRequest httpServletRequest
-            ,@RequestBody JSONObject vote) throws ClassNotFoundException {
+            ,@RequestBody JSONObject vote
+    ) throws ClassNotFoundException {
         String resp = "调查完成";
         //根据VotePage的值做路由，调用相应问卷的services进行记录的添加
         switch (vote.getString("VotePage")){
@@ -152,26 +155,7 @@ public class IndexController {
         modelAndView.addObject("VotePage","mentalQs");
         return modelAndView;
     }
-    /**
-     * 返回职业问卷问卷
-     * @return
-     */
-    @RequestMapping(value = "/professionQs",method = RequestMethod.GET)
-    public ModelAndView professionQs(){
-        ModelAndView modelAndView = new ModelAndView("main");
-        modelAndView.addObject("VotePage","professionQs");
-        return modelAndView;
-    }
-    /**
-     * 返回辅导员问卷
-     * @return
-     */
-    @RequestMapping(value = "/counselorQs",method = RequestMethod.GET)
-    public ModelAndView counselorQs(){
-        ModelAndView modelAndView = new ModelAndView("main");
-        modelAndView.addObject("VotePage","counselorQs");
-        return modelAndView;
-    }
+
     /**
      * 返回学习情况满意度问卷
      * @return
@@ -196,17 +180,44 @@ public class IndexController {
         modelAndView.addObject("VotePage","learningResult");
         return modelAndView;
     }
-/*    @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
+    /**
+     * 管理员首页，默认返回辅导员查询结果
+     * @param httpServletRequest
+     * @return
+     */
+   @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
     public ModelAndView adminSearch(HttpServletRequest httpServletRequest) throws ClassNotFoundException{
         if(httpServletRequest.getSession().getAttribute("currentUser")==null)
             return new ModelAndView("index");
         ModelAndView modelAndView = new ModelAndView("adminSearch");
+        modelAndView.addObject("VotePage","mentalResult");
         return modelAndView;
-    }*/
-     @RequestMapping(value="/mentalResult",method = RequestMethod.POST)
-    public String toResult(Model model){
-         List<Result> resultList = mentalQsMapper.selectResult();
-         model.addAttribute("resultList",resultList);
-         return "mentalResult";
-     }
+    }
+    @ResponseBody
+    @RequestMapping(value = "/adminSearch/load",method = RequestMethod.GET)
+    public String load(){
+        List<Result> list = mentalQsMapper.selectResult();
+        List<Map<String, Object>> res = new ArrayList<>();
+        int i=0;
+        for(Result tempList:list){
+            Map<String,Object> map =new HashMap<>();
+            map.put("no",++i);
+            map.put("value", tempList);
+            res.add(map);
+        }
+        TableInfo tableInfo = new TableInfo();
+        tableInfo.setRows(res);
+        return JSON.toJSONString(tableInfo);
+    }
+    class TableInfo{
+        List<Map<String,Object>> rows;
+
+        public List<Map<String, Object>> getRows() {
+            return rows;
+        }
+
+        public void setRows(List<Map<String, Object>> rows) {
+            this.rows = rows;
+        }
+    }
 }
