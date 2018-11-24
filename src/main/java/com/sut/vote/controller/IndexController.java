@@ -3,10 +3,7 @@ package com.sut.vote.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.sut.vote.dao.MentalQsMapper;
 import com.sut.vote.models.*;
-import com.sut.vote.services.MentalServices;
-import com.sut.vote.services.RecordServices;
-import com.sut.vote.services.TeacherServices;
-import com.sut.vote.services.UserServices;
+import com.sut.vote.services.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +31,12 @@ public class IndexController {
     RecordServices recordServices;
     @Autowired
     TeacherServices teacherServices;
+    @Autowired
+    LearningServices learningServices;
+    @Autowired
+    CounselorServices counselorServices;
+    @Autowired
+    ProfessionalServices professionalServices;
     /**
      * 默认界面，返回登录界面
      * @param httpServletRequest
@@ -113,7 +116,26 @@ public class IndexController {
             case "learningQs":
                 //TODO
                 LearningQs learningQs = JSONObject.parseObject(vote.toJSONString(),LearningQs.class);
-               /* if ()*/
+                if (learningServices.equals(learningQs) == true) {
+                    resp = "您已经完成投票，无需再进行";
+                }
+                else{
+                    learningServices.insert(learningQs);
+                }
+            case "counselorQs":
+                CounselorQs counselorQs = JSONObject.parseObject(vote.toJSONString(),CounselorQs.class);
+                if (counselorServices.equals(counselorQs) == true){
+                    resp = "您已经完成投票，无需再进行";
+                }else{
+                    counselorServices.insert(counselorQs);
+                }
+            case "professionQs":
+                ProfessionalQs professionalQs = JSONObject.parseObject(vote.toJSONString(),ProfessionalQs.class);
+                if (professionalServices.ifCompete(professionalQs) == true){
+                    resp = "您已经完成投票，无需再进行";
+                }else{
+                    professionalServices.insert(professionalQs);
+                }
 
                 break;
         }
