@@ -2,15 +2,15 @@ package com.sut.vote.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.sut.vote.dao.MentalQsMapper;
-import com.sut.vote.models.MentalQs;
-import com.sut.vote.models.Record;
-import com.sut.vote.models.User;
+import com.sut.vote.models.*;
 import com.sut.vote.services.MentalServices;
 import com.sut.vote.services.RecordServices;
+import com.sut.vote.services.TeacherServices;
 import com.sut.vote.services.UserServices;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class IndexController {
@@ -31,6 +32,8 @@ public class IndexController {
     MentalQsMapper mentalQsMapper;
     @Autowired
     RecordServices recordServices;
+    @Autowired
+    TeacherServices teacherServices;
     /**
      * 默认界面，返回登录界面
      * @param httpServletRequest
@@ -93,8 +96,7 @@ public class IndexController {
      */
     @RequestMapping(value="/submit",method = RequestMethod.POST)
     public @ResponseBody Object submit(HttpServletRequest httpServletRequest
-            ,@RequestBody JSONObject vote
-    ) throws ClassNotFoundException {
+            ,@RequestBody JSONObject vote) throws ClassNotFoundException {
         String resp = "调查完成";
         //根据VotePage的值做路由，调用相应问卷的services进行记录的添加
         switch (vote.getString("VotePage")){
@@ -105,10 +107,14 @@ public class IndexController {
                     resp = "您已经完成投票，无需再进行";
                 else
                     mentalServices.insert(mentalQs);
+                    record.setcThchCode(teacherServices.getByName(vote.getString("cThchName")).getcCode());
                     recordServices.insert(record);
                 break;
             case "learningQs":
                 //TODO
+                LearningQs learningQs = JSONObject.parseObject(vote.toJSONString(),LearningQs.class);
+               /* if ()*/
+
                 break;
         }
         return resp;
@@ -124,7 +130,26 @@ public class IndexController {
         modelAndView.addObject("VotePage","mentalQs");
         return modelAndView;
     }
-
+    /**
+     * 返回职业问卷问卷
+     * @return
+     */
+    @RequestMapping(value = "/professionQs",method = RequestMethod.GET)
+    public ModelAndView professionQs(){
+        ModelAndView modelAndView = new ModelAndView("main");
+        modelAndView.addObject("VotePage","professionQs");
+        return modelAndView;
+    }
+    /**
+     * 返回辅导员问卷
+     * @return
+     */
+    @RequestMapping(value = "/counselorQs",method = RequestMethod.GET)
+    public ModelAndView counselorQs(){
+        ModelAndView modelAndView = new ModelAndView("main");
+        modelAndView.addObject("VotePage","counselorQs");
+        return modelAndView;
+    }
     /**
      * 返回学习情况满意度问卷
      * @return
@@ -149,11 +174,6 @@ public class IndexController {
         modelAndView.addObject("VotePage","learningResult");
         return modelAndView;
     }
-    /**
-     * 管理员首页，默认返回辅导员查询结果
-     * @param httpServletRequest
-     * @return
-     */
 /*    @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
     public ModelAndView adminSearch(HttpServletRequest httpServletRequest) throws ClassNotFoundException{
         if(httpServletRequest.getSession().getAttribute("currentUser")==null)
@@ -161,4 +181,10 @@ public class IndexController {
         ModelAndView modelAndView = new ModelAndView("adminSearch");
         return modelAndView;
     }*/
+     @RequestMapping(value="/mentalResult",method = RequestMethod.POST)
+    public String toResult(Model model){
+         List<Result> resultList = mentalQsMapper.selectResult();
+         model.addAttribute("resultList",resultList);
+         return "mentalResult";
+     }
 }
