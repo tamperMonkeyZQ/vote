@@ -4,11 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.sut.vote.dao.MentalQsMapper;
 import com.sut.vote.models.MentalQs;
 import com.sut.vote.models.Record;
-import com.sut.vote.models.Teacher;
 import com.sut.vote.models.User;
 import com.sut.vote.services.MentalServices;
 import com.sut.vote.services.RecordServices;
-import com.sut.vote.services.TeacherServices;
 import com.sut.vote.services.UserServices;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +31,6 @@ public class IndexController {
     MentalQsMapper mentalQsMapper;
     @Autowired
     RecordServices recordServices;
-    @Autowired
-    TeacherServices teacherServices;
     /**
      * 默认界面，返回登录界面
      * @param httpServletRequest
@@ -109,7 +105,6 @@ public class IndexController {
                     resp = "您已经完成投票，无需再进行";
                 else
                     mentalServices.insert(mentalQs);
-                    record.setcThchCode(teacherServices.getByName(vote.getString("cThchName")).getcCode());
                     recordServices.insert(record);
                 break;
             case "learningQs":
@@ -129,18 +124,7 @@ public class IndexController {
         modelAndView.addObject("VotePage","mentalQs");
         return modelAndView;
     }
-    @RequestMapping(value = "/professionQs",method = RequestMethod.GET)
-    public ModelAndView professionQs(){
-        ModelAndView modelAndView = new ModelAndView("main");
-        modelAndView.addObject("VotePage","professionQs");
-        return modelAndView;
-    }
-    @RequestMapping(value = "/counselorQs",method = RequestMethod.GET)
-    public ModelAndView counselorQs(){
-        ModelAndView modelAndView = new ModelAndView("main");
-        modelAndView.addObject("VotePage","counselorQs");
-        return modelAndView;
-    }
+
     /**
      * 返回学习情况满意度问卷
      * @return

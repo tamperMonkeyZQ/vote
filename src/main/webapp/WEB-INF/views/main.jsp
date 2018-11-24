@@ -41,10 +41,10 @@
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">问卷填写</span> <span
                             class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse" style="height: 0px;">
-                        <li><a href="/mentalQs">沈阳工业大学本科生心理健康教育工作调查问卷</a></li>
-                        <li><a href="/learningQs">沈阳工业大学本科生学习情况满意度调查问卷</a></li>
-                        <li><a href="/professionQs">沈阳工业大学本科生职业生涯规划满意度调查问卷</a></li>
-                        <li><a href="/counselorQs">沈阳工业大学辅导员考核学生测评表</a></li>
+                        <li><a href="mentalQs">沈阳工业大学本科生心理健康教育工作调查问卷</a></li>
+                        <li><a href="learningQs">沈阳工业大学本科生学习情况满意度调查问卷</a></li>
+                        <li><a href="#">沈阳工业大学本科生职业生涯规划满意度调查问卷</a></li>
+                        <li><a href="#">沈阳工业大学辅导员考核学生测评表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -108,12 +108,8 @@
         });
     });
     $("#submit").click(function () {
-        if($("#institute").val() == '')
-            alert("请选择学院");
-        if($("#teacher").val() == '')
-            alert("请选择辅导员")
-        var instituteCode = $("#institute").val();
-        var techName = $("#teacher").val();
+        var instituteCode = "${institute.val()}";
+        var techCode = "${teacher.val()}";
         var cCode = "${currentUser.cCode}";
         var instituteName;
         switch(cCode.substring(2,4))
@@ -157,8 +153,8 @@
             default:
         }
         var vote = {
-            "cInstituteCode" : instituteCode,
-            "cThchName" : techName,
+            "cInstituteCode" : instituteCode
+            "cThchName" : techName
             "cCode": cCode,
             "cInstituteName": instituteName
         };

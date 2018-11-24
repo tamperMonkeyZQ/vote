@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <div id="QsContent" class="form-horizontal" method="post" name="ProfessionQS">
+                    <div id="QsContent" class="form-horizontal" method="post" name="counselorQs">
                         <div class="form-group">
                             <label name="cFirstQue" class="col-lg-12 QS">1. .辅导员师德高尚，为人师表，能够以身作则，办事公正，严于律己（观测点：主要看与你心目中辅导员形象的距离）？</label>
                             <div class="col-sm-10">
