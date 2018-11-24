@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @ComponentScan({"com.sut.vote.dao"})
 @Service
 public class UserServices {
@@ -25,5 +27,8 @@ public class UserServices {
             else
                 return false;
 
+    }
+    public interface UserService{
+        List<User> getAll();
     }
 }

@@ -1,6 +1,5 @@
 package com.sut.vote.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sut.vote.dao.MentalQsMapper;
 import com.sut.vote.models.MentalQs;
@@ -21,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +34,8 @@ public class IndexController {
     MentalQsMapper mentalQsMapper;
     @Autowired
     RecordServices recordServices;
+    @Autowired
+    TeacherServices teacherServices;
     /**
      * 默认界面，返回登录界面
      * @param httpServletRequest
@@ -110,10 +110,14 @@ public class IndexController {
                     resp = "您已经完成投票，无需再进行";
                 else
                     mentalServices.insert(mentalQs);
+                    record.setcThchCode(teacherServices.getByName(vote.getString("cThchName")).getcCode());
                     recordServices.insert(record);
                 break;
             case "learningQs":
                 //TODO
+                LearningQs learningQs = JSONObject.parseObject(vote.toJSONString(),LearningQs.class);
+               /* if ()*/
+
                 break;
         }
         return resp;
@@ -150,6 +154,19 @@ public class IndexController {
         if(httpServletRequest.getSession().getAttribute("currentUser")==null) {
             return new ModelAndView("index");
         }
+        ModelAndView modelAndView = new ModelAndView("adminSearch");
+        modelAndView.addObject("VotePage","learningResult");
+        return modelAndView;
+    }
+    /**
+     * 管理员首页，默认返回辅导员查询结果
+     * @param httpServletRequest
+     * @return
+     */
+/*    @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
+    public ModelAndView adminSearch(HttpServletRequest httpServletRequest) throws ClassNotFoundException{
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
+            return new ModelAndView("index");
         ModelAndView modelAndView = new ModelAndView("adminSearch");
         modelAndView.addObject("VotePage","mentalResult");
         return modelAndView;
