@@ -3,40 +3,40 @@ package com.sut.vote.models;
 import java.util.List;
 
 public class Result {
-    private String Apersent;
-    private String Bpersent;
-    private String Cpersent;
-    private String Dpersent;
+    private String A;
+    private String B;
+    private String C;
+    private String D;
 
-    public String getApersent() {
-        return Apersent;
+    public String getA() {
+        return A;
     }
 
-    public void setApersent(String apersent) {
-        Apersent = apersent;
+    public void setA(String a) {
+        A = a;
     }
 
-    public String getBpersent() {
-        return Bpersent;
+    public String getB() {
+        return B;
     }
 
-    public void setBpersent(String bpersent) {
-        Bpersent = bpersent;
+    public void setB(String b) {
+        B = b;
     }
 
-    public String getCpersent() {
-        return Cpersent;
+    public String getC() {
+        return C;
     }
 
-    public void setCpersent(String cpersent) {
-        Cpersent = cpersent;
+    public void setC(String c) {
+        C = c;
     }
 
-    public String getDpersent() {
-        return Dpersent;
+    public String getD() {
+        return D;
     }
 
-    public void setDpersent(String dpersent) {
-        Dpersent = dpersent;
+    public void setD(String d) {
+        D = d;
     }
 }
