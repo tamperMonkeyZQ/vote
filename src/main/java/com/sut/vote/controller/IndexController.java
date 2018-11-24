@@ -1,13 +1,12 @@
 package com.sut.vote.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sut.vote.dao.MentalQsMapper;
-import com.sut.vote.models.MentalQs;
-import com.sut.vote.models.Record;
-import com.sut.vote.models.Result;
-import com.sut.vote.models.User;
+import com.sut.vote.models.*;
 import com.sut.vote.services.MentalServices;
 import com.sut.vote.services.RecordServices;
+import com.sut.vote.services.TeacherServices;
 import com.sut.vote.services.UserServices;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -163,7 +163,7 @@ public class IndexController {
      * @param httpServletRequest
      * @return
      */
-/*    @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
+   @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
     public ModelAndView adminSearch(HttpServletRequest httpServletRequest) throws ClassNotFoundException{
         if(httpServletRequest.getSession().getAttribute("currentUser")==null)
             return new ModelAndView("index");
