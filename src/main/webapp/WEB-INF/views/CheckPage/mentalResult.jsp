@@ -16,7 +16,5 @@
     </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
-
-
-
+    <table id="test-table" class="table table-hover table-striped table-condensed table-bordered"></table>
 </div>

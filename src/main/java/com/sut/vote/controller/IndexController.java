@@ -1,9 +1,11 @@
 package com.sut.vote.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sut.vote.dao.MentalQsMapper;
 import com.sut.vote.models.MentalQs;
 import com.sut.vote.models.Record;
+import com.sut.vote.models.Result;
 import com.sut.vote.models.User;
 import com.sut.vote.services.MentalServices;
 import com.sut.vote.services.RecordServices;
@@ -19,7 +21,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class IndexController {
@@ -146,19 +151,34 @@ public class IndexController {
             return new ModelAndView("index");
         }
         ModelAndView modelAndView = new ModelAndView("adminSearch");
-        modelAndView.addObject("VotePage","learningResult");
+        modelAndView.addObject("VotePage","mentalResult");
         return modelAndView;
     }
-    /**
-     * 管理员首页，默认返回辅导员查询结果
-     * @param httpServletRequest
-     * @return
-     */
-/*    @RequestMapping(value="/adminSearch",method = RequestMethod.GET)
-    public ModelAndView adminSearch(HttpServletRequest httpServletRequest) throws ClassNotFoundException{
-        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
-            return new ModelAndView("index");
-        ModelAndView modelAndView = new ModelAndView("adminSearch");
-        return modelAndView;
-    }*/
+    @ResponseBody
+    @RequestMapping(value = "/adminSearch/load",method = RequestMethod.GET)
+    public String load(){
+        List<Result> list = mentalQsMapper.selectResult();
+        List<Map<String, Object>> res = new ArrayList<>();
+        int i=0;
+        for(Result tempList:list){
+            Map<String,Object> map =new HashMap<>();
+            map.put("no",++i);
+            map.put("value", tempList);
+            res.add(map);
+        }
+        TableInfo tableInfo = new TableInfo();
+        tableInfo.setRows(res);
+        return JSON.toJSONString(tableInfo);
+    }
+    class TableInfo{
+        List<Map<String,Object>> rows;
+
+        public List<Map<String, Object>> getRows() {
+            return rows;
+        }
+
+        public void setRows(List<Map<String, Object>> rows) {
+            this.rows = rows;
+        }
+    }
 }
