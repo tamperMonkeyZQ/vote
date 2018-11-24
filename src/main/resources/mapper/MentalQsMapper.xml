@@ -161,4 +161,7 @@
     );
     SELECT @one/@num as '1',@two/@num as '2',@three/@num as '3',@four/@num as '4',@five/@num as '5'
   </select>
+  <select id = "selectResult" resultType="com.sut.vote.models.Result">
+    select * from result_men
+  </select>
 </mapper>

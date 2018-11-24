@@ -1,7 +1,10 @@
 package com.sut.vote.dao;
 
 import com.sut.vote.models.MentalQs;
+import com.sut.vote.models.Result;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface MentalQsMapper {
@@ -45,4 +48,5 @@ public interface MentalQsMapper {
      */
     int updateByPrimaryKey(MentalQs record);
     double caculator();
+    List<Result> selectResult();
 }
