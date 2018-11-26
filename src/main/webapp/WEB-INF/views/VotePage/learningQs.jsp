@@ -9,6 +9,7 @@
             <li class="active">
                 <strong>沈阳工业大学本科生职业生涯规划的满意度调查问卷</strong>
             </li>
+
         </ol>
     </div>
     <div class="col-lg-2">
@@ -581,7 +582,7 @@
                            </div>
                             <div class="hr-line-dashed"></div>
                                 <div class="form-group">
-                                <label name="cSixTeemQue" class="col-lg-12 QS">16. 对自身课堂出勤及课上学习效率情况是否满意</label>
+                                <label name="cSixTeenQue" class="col-lg-12 QS">16. 对自身课堂出勤及课上学习效率情况是否满意</label>
                                <div class="col-sm-10">
                                    <div>
                                        <label>
@@ -617,7 +618,7 @@
                            </div>
                             <div class="hr-line-dashed"></div>
                                 <div class="form-group">
-                                <label name="cSevenTeemQue" class="col-lg-12 QS">17. 对自身课前预习情况是否满意</label>
+                                <label name="cSevenTeenQue" class="col-lg-12 QS">17. 对自身课前预习情况是否满意</label>
                                <div class="col-sm-10">
                                    <div>
                                        <label>
@@ -653,7 +654,7 @@
                            </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
-                                <label name="cEighTeemQue" class="col-lg-12 QS">18. 对自身自习时间及效率情况是否满意</label>
+                                <label name="cEighteenQue" class="col-lg-12 QS">18. 对自身自习时间及效率情况是否满意</label>
                                <div class="col-sm-10">
                                    <div>
                                        <label>
@@ -689,7 +690,7 @@
                            </div>
                             <div class="hr-line-dashed"></div>
                                 <div class="form-group">
-                                <label name="cNineTeemQue" class="col-lg-12 QS">19. 对自身自主学习计划外课程情况是否满意</label>
+                                <label name="cNineTeenQue" class="col-lg-12 QS">19. 对自身自主学习计划外课程情况是否满意</label>
                                <div class="col-sm-10">
                                    <div>
                                        <label>
