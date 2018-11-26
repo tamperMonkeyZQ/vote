@@ -208,23 +208,17 @@ public class IndexController {
         return modelAndView;
     }
     /**
-     * 返回职业规划问卷
+     * 返回管理员界面
+     * @param httpServletRequest
      * @return
      */
-    @RequestMapping(value = "/professionQs",method = RequestMethod.GET)
-    public ModelAndView professionQs(){
-        ModelAndView modelAndView = new ModelAndView("main");
-        modelAndView.addObject("VotePage","professionQs");
-        return modelAndView;
-    }
-    /**
-     * 返回辅导员问卷
-     * @return
-     */
-    @RequestMapping(value = "/counselorQs",method = RequestMethod.GET)
-    public ModelAndView counselorQs(){
-        ModelAndView modelAndView = new ModelAndView("main");
-        modelAndView.addObject("VotePage","counselorQs");
+    @RequestMapping(value = "/adminSearch",method = RequestMethod.GET)
+    public ModelAndView admin(HttpServletRequest httpServletRequest){
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null) {
+            return new ModelAndView("index");
+        }
+        ModelAndView modelAndView = new ModelAndView("adminSearch");
+        modelAndView.addObject("VotePage","learningResult");
         return modelAndView;
     }
     /**
