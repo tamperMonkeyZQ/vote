@@ -125,9 +125,11 @@ public class IndexController {
                 if(mentalServices.ifCompete(mentalQs) == true)
                     resp = "您已经完成投票，无需再进行";
                 else
+                {
                     mentalServices.insert(mentalQs);
                     record.setcThchCode(teacherServices.getByName(vote.getString("cThchName")).getcCode());
                     recordServices.insert(record);
+                }
                 break;
             case "learningQs":
                 //TODO
@@ -138,6 +140,7 @@ public class IndexController {
                 else{
                     learningServices.insert(learningQs);
                 }
+                break;
             case "counselorQs":
                 CounselorQs counselorQs = JSONObject.parseObject(vote.toJSONString(),CounselorQs.class);
                 if (counselorServices.equals(counselorQs) == true){
@@ -145,6 +148,7 @@ public class IndexController {
                 }else{
                     counselorServices.insert(counselorQs);
                 }
+                break;
             case "professionQs":
                 ProfessionalQs professionalQs = JSONObject.parseObject(vote.toJSONString(),ProfessionalQs.class);
                 if (professionalServices.ifCompete(professionalQs) == true){
@@ -152,7 +156,6 @@ public class IndexController {
                 }else{
                     professionalServices.insert(professionalQs);
                 }
-
                 break;
         }
         return resp;
@@ -163,7 +166,9 @@ public class IndexController {
      * @return
      */
     @RequestMapping(value = "/mentalQs",method = RequestMethod.GET)
-    public ModelAndView mentalQs(){
+    public ModelAndView mentalQs(HttpServletRequest httpServletRequest){
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
+            return new ModelAndView("index");
         ModelAndView modelAndView = new ModelAndView("main");
         modelAndView.addObject("VotePage","mentalQs");
         return modelAndView;
@@ -215,9 +220,32 @@ public class IndexController {
      * @return
      */
     @RequestMapping(value = "/learningQs",method = RequestMethod.GET)
-    public ModelAndView learningQs(){
+    public ModelAndView learningQs(HttpServletRequest httpServletRequest){
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
+            return new ModelAndView("index");
         ModelAndView modelAndView = new ModelAndView("main");
         modelAndView.addObject("VotePage","learningQs");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/professionQs",method = RequestMethod.GET)
+    public ModelAndView professionQsQs(HttpServletRequest httpServletRequest){
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
+            return new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("main");
+        modelAndView.addObject("VotePage","professionQs");
+        return modelAndView;
+    }
+
+    /**
+     * 返回学习情况满意度问卷
+     * @return
+     */
+    @RequestMapping(value = "/counselorQs",method = RequestMethod.GET)
+    public ModelAndView counselorQs(HttpServletRequest httpServletRequest){
+        if(httpServletRequest.getSession().getAttribute("currentUser")==null)
+            return new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("main");
+        modelAndView.addObject("VotePage","counselorQs");
         return modelAndView;
     }
     /**

@@ -156,28 +156,93 @@
                 break;
             default:
         }
-        var vote = {
-            "cInstituteCode" : instituteCode,
-            "cThchName" : techName,
-            "cCode": cCode,
-            "cInstituteName": instituteName
-        };
-        $(".QS").each(function(i){
-                    var index = "q"+(++i);
-                    var str = $(this).attr("name");
-                    vote[str] = $("input[name="+index+"]:checked").val();
-                     vote["VotePage"] = "${VotePage}";
-                });
-        $.ajax({
-        type: "POST",
-                    url: "/submit",
-                    data: JSON.stringify(vote),
-                    contentType:"application/json",
-                    dataType: "text",
-                    success: function(data) {
-                        alert(data.trim());
-                    }
-        });
+        if("${VotePage}" == "mentalQs" ||"${VotePage}" == "learningQs" )
+        {
+            var vote = {
+                "cInstituteCode": instituteCode,
+                "cThchName": techName,
+                "cCode": cCode,
+                "cInstituteName": instituteName
+            };
+            vote["VotePage"] = "${VotePage}";
+            $(".QS").each(function (i) {
+                var index = "q" + (++i);
+                var str = $(this).attr("name");
+                vote[str] = $("input[name=" + index + "]:checked").val();
+            });
+            $.ajax({
+                type: "POST",
+                url: "/submit",
+                data: JSON.stringify(vote),
+                contentType: "application/json",
+                dataType: "text",
+                success: function (data) {
+                    alert(data.trim());
+                }
+            });
+        }
+        else if("${VotePage}" == "counselorQs"){
+            var vote = {
+                "cCode": cCode,
+                "cTechName": techName,
+                "cInstituteName": instituteName
+            };
+            vote["VotePage"] = "${VotePage}";
+            var cScore = 0.0;
+            var ABpercent = 0.0;
+            $(".QS").each(function (i) {
+                var index = "q" + (++i);
+                switch ($("input[name=" + index + "]:checked").val()){
+                        case '3':vote['cEleQue'] = '1';break;
+                        case '2.25':vote['cEleQue'] = '1';break;
+                        case '1.5':vote['cEleQue'] = '0';break;
+                        case '0.75':vote['cEleQue'] = '0';break;
+                }
+                if(i!=11)
+                cScore += parseFloat($("input[name=" + index + "]:checked").val());
+            });
+            vote['cScore'] = cScore;
+            $.ajax({
+                type: "POST",
+                url: "/submit",
+                data: JSON.stringify(vote),
+                contentType: "application/json",
+                dataType: "text",
+                success: function (data) {
+                    alert(data.trim());
+                }
+            });
+        }
+        else {
+            var vote = {
+                "cCode": cCode,
+                "cTechName": techName,
+                "cInstituteName": instituteName
+            };
+            vote["VotePage"] = "${VotePage}";
+            var cScore = 0.0;
+            $(".QS").each(function (i) {
+                var index = "q" + (++i);
+                switch ($("input[name=" + index + "]:checked").val()){
+                    case '0.4':vote['cFifQue'] = '1';break;
+                    case '0.3':vote['cFifQue'] = '1';break;
+                    case '0.2':vote['cFifQue'] = '0';break;
+                    case '0.1':vote['cFifQue'] = '0';break;
+                }
+                cScore += parseFloat($("input[name=" + index + "]:checked").val());
+            });
+            vote['cScore'] = cScore;
+            $.ajax({
+                type: "POST",
+                url: "/submit",
+                data: JSON.stringify(vote),
+                contentType: "application/json",
+                dataType: "text",
+                success: function (data) {
+                    alert(data.trim());
+                }
+            });
+        }
     });
 </script>
 </body>

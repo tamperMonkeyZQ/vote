@@ -9,23 +9,7 @@
             <li class="active">
                 <strong>沈阳工业大学本科生心理健康教育工作调查问卷</strong>
             </li>
-            <select id = "institute">
-            <option>--请选择--</option>
-            <option value = "01">机械工程学院</option>
-            <option value = "02">材料科学与工程学院</option>
-            <option value = "03">电气工程学院</option>
-            <option value = "04">信息科学与工程学院</option>
-            <option value = "05">管理学院</option>
-            <option value = "06">文法学院</option>
-            <option value = "07">理学院</option>
-            <option value = "08">建筑与土木工程学院</option>
-            <option value = "09">外国语学院</option>
-            <option value = "10">经济学院</option>
-            <option value = "11">国际交流中心</option>
-            <option value = "12">软件学院</option>
-            </select>
-            <select id = "teacher">
-            </select>
+
         </ol>
     </div>
     <div class="col-lg-2">
