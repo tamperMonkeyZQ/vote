@@ -41,7 +41,7 @@
                             <div class="col-sm-10">
                                 <div>
                                     <label>
-                                        <input type="radio" value="A" name="q1">
+                                        <input type="radio" value="3" name="q1">
                                         非常满意
                                     </label>
                                 </div>
@@ -49,7 +49,7 @@
                             <div class="col-sm-10">
                                 <div>
                                     <label>
-                                        <input type="radio" value="B" name="q1">
+                                        <input type="radio" value="2.25" name="q1">
                                         满意
                                     </label>
                                 </div>
@@ -57,7 +57,7 @@
                               <div class="col-sm-10">
                                 <div>
                                      <label>
-                                         <input type="radio" value="C" name="q1">
+                                         <input type="radio" value="1.5" name="q1">
                                           一般
                                      </label>
                                  </div>
@@ -65,7 +65,7 @@
                                 <div class="col-sm-10">
                                   <div>
                                       <label>
-                                          <input type="radio" value="D" name="q1">
+                                          <input type="radio" value="0.75" name="q1">
                                            不满意
                                        </label>
                                    </div>
@@ -78,7 +78,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="A" name="q2">
+                                       <input type="radio" value="3" name="q2">
                                        非常满意
                                    </label>
                                </div>
@@ -86,7 +86,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="B" name="q2">
+                                       <input type="radio" value="2.25" name="q2">
                                        满意
                                    </label>
                                </div>
@@ -94,7 +94,7 @@
                              <div class="col-sm-10">
                                <div>
                                     <label>
-                                        <input type="radio" value="C" name="q2">
+                                        <input type="radio" value="1.5" name="q2">
                                          一般
                                     </label>
                                 </div>
@@ -102,7 +102,7 @@
                                <div class="col-sm-10">
                                  <div>
                                      <label>
-                                         <input type="radio" value="D" name="q2">
+                                         <input type="radio" value="0.75" name="q2">
                                           不满意
                                       </label>
                                   </div>
@@ -115,7 +115,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="A" name="q3">
+                                       <input type="radio" value="3" name="q3">
                                        非常满意
                                    </label>
                                </div>
@@ -123,7 +123,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="B" name="q3">
+                                       <input type="radio" value="2.25" name="q3">
                                        满意
                                    </label>
                                </div>
@@ -131,7 +131,7 @@
                              <div class="col-sm-10">
                                <div>
                                     <label>
-                                        <input type="radio" value="C" name="q3">
+                                        <input type="radio" value="1.5" name="q3">
                                          一般
                                     </label>
                                 </div>
@@ -139,7 +139,7 @@
                                <div class="col-sm-10">
                                  <div>
                                      <label>
-                                         <input type="radio" value="D" name="q3">
+                                         <input type="radio" value="0.75" name="q3">
                                           不满意
                                       </label>
                                   </div>
@@ -152,7 +152,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="A" name="q4">
+                                       <input type="radio" value="3 name="q4">
                                        非常满意
                                    </label>
                                </div>
@@ -160,7 +160,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="B" name="q4">
+                                       <input type="radio" value="2.25" name="q4">
                                        满意
                                    </label>
                                </div>
@@ -168,7 +168,7 @@
                              <div class="col-sm-10">
                                <div>
                                     <label>
-                                        <input type="radio" value="C" name="q4">
+                                        <input type="radio" value="1.5" name="q4">
                                          一般
                                     </label>
                                 </div>
@@ -176,7 +176,7 @@
                                <div class="col-sm-10">
                                  <div>
                                      <label>
-                                         <input type="radio" value="D" name="q4">
+                                         <input type="radio" value="0.75" name="q4">
                                           不满意
                                       </label>
                                   </div>
@@ -189,7 +189,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="A" name="q5">
+                                       <input type="radio" value="3" name="q5">
                                        非常满意
                                    </label>
                                </div>
@@ -197,7 +197,7 @@
                            <div class="col-sm-10">
                                <div>
                                    <label>
-                                       <input type="radio" value="B" name="q5">
+                                       <input type="radio" value="2.25" name="q5">
                                        满意
                                    </label>
                                </div>
@@ -205,7 +205,7 @@
                              <div class="col-sm-10">
                                <div>
                                     <label>
-                                        <input type="radio" value="C" name="q5">
+                                        <input type="radio" value="1.5" name="q5">
                                          一般
                                     </label>
                                 </div>
@@ -213,7 +213,7 @@
                                <div class="col-sm-10">
                                  <div>
                                      <label>
-                                         <input type="radio" value="D" name="q5">
+                                         <input type="radio" value="0.75" name="q5">
                                           不满意
                                       </label>
                                   </div>
@@ -225,7 +225,7 @@
                        <div class="col-sm-10">
                            <div>
                                <label>
-                                   <input type="radio" value="A" name="q6">
+                                   <input type="radio" value="3" name="q6">
                                    非常满意
                                </label>
                            </div>
@@ -233,7 +233,7 @@
                        <div class="col-sm-10">
                            <div>
                                <label>
-                                   <input type="radio" value="B" name="q6">
+                                   <input type="radio" value="2.25" name="q6">
                                    满意
                                </label>
                            </div>
@@ -241,7 +241,7 @@
                          <div class="col-sm-10">
                            <div>
                                 <label>
-                                    <input type="radio" value="C" name="q6">
+                                    <input type="radio" value="1.5" name="q6">
                                      一般
                                 </label>
                             </div>
@@ -249,7 +249,7 @@
                            <div class="col-sm-10">
                              <div>
                                  <label>
-                                     <input type="radio" value="D" name="q6">
+                                     <input type="radio" value="0.75 name="q6">
                                       不满意
                                   </label>
                               </div>
@@ -261,7 +261,7 @@
                    <div class="col-sm-10">
                        <div>
                            <label>
-                               <input type="radio" value="A" name="q7">
+                               <input type="radio" value="3" name="q7">
                                非常满意
                            </label>
                        </div>
@@ -269,7 +269,7 @@
                    <div class="col-sm-10">
                        <div>
                            <label>
-                               <input type="radio" value="B" name="q7">
+                               <input type="radio" value="2.25" name="q7">
                                满意
                            </label>
                        </div>
@@ -277,7 +277,7 @@
                      <div class="col-sm-10">
                        <div>
                             <label>
-                                <input type="radio" value="C" name="q7">
+                                <input type="radio" value="1.5" name="q7">
                                  一般
                             </label>
                         </div>
@@ -285,7 +285,7 @@
                        <div class="col-sm-10">
                          <div>
                              <label>
-                                 <input type="radio" value="D" name="q7">
+                                 <input type="radio" value="0.75" name="q7">
                                   不满意
                               </label>
                           </div>
@@ -297,7 +297,7 @@
                <div class="col-sm-10">
                    <div>
                        <label>
-                           <input type="radio" value="A" name="q8">
+                           <input type="radio" value="3" name="q8">
                            非常满意
                        </label>
                    </div>
@@ -305,7 +305,7 @@
                <div class="col-sm-10">
                    <div>
                        <label>
-                           <input type="radio" value="B" name="q8">
+                           <input type="radio" value="2.25" name="q8">
                            满意
                        </label>
                    </div>
@@ -313,7 +313,7 @@
                  <div class="col-sm-10">
                    <div>
                         <label>
-                            <input type="radio" value="C" name="q8">
+                            <input type="radio" value="1.5" name="q8">
                              一般
                         </label>
                     </div>
@@ -321,7 +321,7 @@
                    <div class="col-sm-10">
                      <div>
                          <label>
-                             <input type="radio" value="D" name="q8">
+                             <input type="radio" value="0.75" name="q8">
                               不满意
                           </label>
                       </div>
@@ -333,7 +333,7 @@
            <div class="col-sm-10">
                <div>
                    <label>
-                       <input type="radio" value="A" name="q9">
+                       <input type="radio" value="3" name="q9">
                        非常满意
                    </label>
                </div>
@@ -341,7 +341,7 @@
            <div class="col-sm-10">
                <div>
                    <label>
-                       <input type="radio" value="B" name="q9">
+                       <input type="radio" value="2.25" name="q9">
                        满意
                    </label>
                </div>
@@ -349,7 +349,7 @@
              <div class="col-sm-10">
                <div>
                     <label>
-                        <input type="radio" value="C" name="q9">
+                        <input type="radio" value="1.5" name="q9">
                          一般
                     </label>
                 </div>
@@ -357,7 +357,7 @@
                <div class="col-sm-10">
                  <div>
                      <label>
-                         <input type="radio" value="D" name="q9">
+                         <input type="radio" value="0.75" name="q9">
                           不满意
                       </label>
                   </div>
@@ -369,7 +369,7 @@
                                    <div class="col-sm-10">
                                        <div>
                                            <label>
-                                               <input type="radio" value="A" name="q10">
+                                               <input type="radio" value="3" name="q10">
                                                非常满意
                                            </label>
                                        </div>
@@ -377,7 +377,7 @@
                                    <div class="col-sm-10">
                                        <div>
                                            <label>
-                                               <input type="radio" value="B" name="q10">
+                                               <input type="radio" value="2.25" name="q10">
                                                满意
                                            </label>
                                        </div>
@@ -385,7 +385,7 @@
                                      <div class="col-sm-10">
                                        <div>
                                             <label>
-                                                <input type="radio" value="C" name="q10">
+                                                <input type="radio" value="1.5" name="q10">
                                                  一般
                                             </label>
                                         </div>
@@ -393,7 +393,7 @@
                                        <div class="col-sm-10">
                                          <div>
                                              <label>
-                                                 <input type="radio" value="D" name="q10">
+                                                 <input type="radio" value="0.75" name="q10">
                                                   不满意
                                               </label>
                                           </div>

@@ -42,4 +42,8 @@ public interface LearningQsMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(LearningQs record);
+    /**
+     * 计算样本总数，用于计算选项比例，A B C D均可用
+     * */
+    int calculate();
 }
