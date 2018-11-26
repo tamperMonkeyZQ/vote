@@ -162,29 +162,11 @@
             "cCode": cCode,
             "cInstituteName": instituteName
         };
-         vote["VotePage"] = "${VotePage}";
-          if("mentalQs" == "${VotePage}" ||"learningQs" == "${VotePage}" ){
-          var total = 0;
-        $(".QS").each(function(i){
-            var index = "q"+(++i);
-            total = total + $("input[name="+index+"]:checked").val();
-                   });
-        $.ajax({
-            type: "POST",
-            url: "/submit",
-            data: JSON.stringify(vote),
-            contentType:"application/json",
-            dataType: "text",
-            success: function(data) {
-                alert(data.trim());
-            }
-        });
-        }
-        else("counselorQs" == "${VotePage}"||"professionQs" == "${VotePage}"){
         $(".QS").each(function(i){
                     var index = "q"+(++i);
                     var str = $(this).attr("name");
                     vote[str] = $("input[name="+index+"]:checked").val();
+                     vote["VotePage"] = "${VotePage}";
                 });
         $.ajax({
         type: "POST",
@@ -196,7 +178,6 @@
                         alert(data.trim());
                     }
         });
-        }
     });
 </script>
 </body>

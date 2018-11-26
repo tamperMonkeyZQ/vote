@@ -57,8 +57,6 @@
                 </div>
                 <p class="m-t">
                     <small>沈阳工业大学</small>
-                       <input type = "radio" name = "select" value = "学生" id = "student" name = "type">student
-                       <input type = "radio" name = "select" value = "老师" id = "teacher" name = "type">teacher
                 </p>
             </div>
         </div>

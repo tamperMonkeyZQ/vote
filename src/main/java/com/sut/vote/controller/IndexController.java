@@ -91,6 +91,19 @@ public class IndexController {
         modelAndView.addObject("VotePage","mentalQs");
         return modelAndView;
     }
+    /**
+     * 问卷查询选择
+     * @param httpServletRequest
+     * @param institute
+     * @retrun
+     * @throws ClassNotFoundException
+     * */
+    @RequestMapping(value = "/mentalResult/submit" ,method = RequestMethod.GET)
+    public @ResponseBody Object search(HttpServletRequest httpServletRequest
+            ,@RequestBody String institute) throws ClassNotFoundException{
+       JSONObject instituteSerach = JSONObject.parseObject(institute);
+       return 1;
+    }
 
     /**
      * 完成的问卷提交
