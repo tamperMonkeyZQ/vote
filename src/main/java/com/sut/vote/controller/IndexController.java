@@ -167,20 +167,6 @@ public class IndexController {
         return modelAndView;
     }
     /**
-     * 返回管理员界面
-     * @param httpServletRequest
-     * @return
-     */
-    @RequestMapping(value = "/adminSearch",method = RequestMethod.GET)
-    public ModelAndView admin(HttpServletRequest httpServletRequest){
-        if(httpServletRequest.getSession().getAttribute("currentUser")==null) {
-            return new ModelAndView("index");
-        }
-        ModelAndView modelAndView = new ModelAndView("adminSearch");
-        modelAndView.addObject("VotePage","learningResult");
-        return modelAndView;
-    }
-    /**
      * 管理员首页，默认返回辅导员查询结果
      * @param httpServletRequest
      * @return
