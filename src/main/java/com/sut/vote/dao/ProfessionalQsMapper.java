@@ -1,6 +1,9 @@
 package com.sut.vote.dao;
 
+import com.sut.vote.models.CounselorResult;
 import com.sut.vote.models.ProfessionalQs;
+
+import java.util.List;
 
 public interface ProfessionalQsMapper {
     /**
@@ -42,4 +45,6 @@ public interface ProfessionalQsMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(ProfessionalQs record);
+    List<CounselorResult> professionalSearch();
+
 }

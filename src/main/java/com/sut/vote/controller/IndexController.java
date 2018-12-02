@@ -2,16 +2,16 @@ package com.sut.vote.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.sut.vote.dao.CounselorQsMapper;
+import com.sut.vote.dao.LearningQsMapper;
 import com.sut.vote.dao.MentalQsMapper;
+import com.sut.vote.dao.ProfessionalQsMapper;
 import com.sut.vote.models.*;
 import com.sut.vote.services.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,11 +24,15 @@ import java.util.Map;
 @Controller
 public class IndexController {
     @Autowired
+    ProfessionalQsMapper professionalQsMapper;
+    @Autowired
     UserServices userServices;
     @Autowired
     MentalServices mentalServices;
     @Autowired
     MentalQsMapper mentalQsMapper;
+    @Autowired
+    LearningQsMapper learningQsMapper;
     @Autowired
     RecordServices recordServices;
     @Autowired
@@ -39,6 +43,8 @@ public class IndexController {
     CounselorServices counselorServices;
     @Autowired
     ProfessionalServices professionalServices;
+    @Autowired
+    CounselorQsMapper counselorQsMapper;
     /**
      * 默认界面，返回登录界面
      * @param httpServletRequest
@@ -98,7 +104,7 @@ public class IndexController {
      * @retrun
      * @throws ClassNotFoundException
      * */
-    @RequestMapping(value = "/mentalResult/submit" ,method = RequestMethod.GET)
+    @RequestMapping(value = "/mentalQs/submit" ,method = RequestMethod.POST)
     public @ResponseBody Object search(HttpServletRequest httpServletRequest
             ,@RequestBody String institute) throws ClassNotFoundException{
        JSONObject instituteSerach = JSONObject.parseObject(institute);
@@ -121,14 +127,12 @@ public class IndexController {
         switch (vote.getString("VotePage")){
             case "mentalQs":
                 MentalQs mentalQs = JSONObject.parseObject(vote.toJSONString(),MentalQs.class);
-                Record record = JSONObject.parseObject(vote.toJSONString(),Record.class);
+
                 if(mentalServices.ifCompete(mentalQs) == true)
                     resp = "您已经完成投票，无需再进行";
                 else
                 {
                     mentalServices.insert(mentalQs);
-                    record.setcThchCode(teacherServices.getByName(vote.getString("cThchName")).getcCode());
-                    recordServices.insert(record);
                 }
                 break;
             case "learningQs":
@@ -146,7 +150,10 @@ public class IndexController {
                 if (counselorServices.equals(counselorQs) == true){
                     resp = "您已经完成投票，无需再进行";
                 }else{
+                    Record record = JSONObject.parseObject(vote.toJSONString(),Record.class);
                     counselorServices.insert(counselorQs);
+                    record.setcThchCode(teacherServices.getByName(vote.getString("cTechName")).getcCode());
+                    recordServices.insert(record);
                 }
                 break;
             case "professionQs":
@@ -248,22 +255,9 @@ public class IndexController {
         modelAndView.addObject("VotePage","counselorQs");
         return modelAndView;
     }
+
     /**
-     * 返回管理员界面
-     * @param httpServletRequest
-     * @return
-     */
-    @RequestMapping(value = "/adminSearch",method = RequestMethod.GET)
-    public ModelAndView admin(HttpServletRequest httpServletRequest){
-        if(httpServletRequest.getSession().getAttribute("currentUser")==null) {
-            return new ModelAndView("index");
-        }
-        ModelAndView modelAndView = new ModelAndView("adminSearch");
-        modelAndView.addObject("VotePage","learningResult");
-        return modelAndView;
-    }
-    /**
-     * 管理员首页，默认返回辅导员查询结果
+     * 管理员首页，默认返回心理问卷查询结果
      * @param httpServletRequest
      * @return
      */
@@ -272,12 +266,13 @@ public class IndexController {
         if(httpServletRequest.getSession().getAttribute("currentUser")==null)
             return new ModelAndView("index");
         ModelAndView modelAndView = new ModelAndView("adminSearch");
-        modelAndView.addObject("VotePage","mentalResult");
+        modelAndView.addObject("CheckPage","mentalResult");
         return modelAndView;
     }
     @ResponseBody
-    @RequestMapping(value = "/adminSearch/load",method = RequestMethod.GET)
-    public String load(){
+    @RequestMapping(value = "/mentalResult/load",method = RequestMethod.GET)
+    public String mentalLoad(@RequestParam(value = "institutename",required = false) String institutename){
+       mentalQsMapper.processCalc(institutename);
         List<Result> list = mentalQsMapper.selectResult();
         List<Map<String, Object>> res = new ArrayList<>();
         int i=0;
@@ -291,6 +286,59 @@ public class IndexController {
         tableInfo.setRows(res);
         return JSON.toJSONString(tableInfo);
     }
+    @ResponseBody
+    @RequestMapping(value = "/professionResult/load",method = RequestMethod.GET)
+    public String counselorResultLoad(){
+        List<CounselorResult> list = professionalQsMapper.professionalSearch();
+        List<Map<String, Object>> res = new ArrayList<>();
+        int i=0;
+        for(CounselorResult tempList:list){
+            Map<String,Object> map =new HashMap<>();
+            map.put("no",++i);
+            map.put("value", tempList);
+            res.add(map);
+        }
+        TableInfo tableInfo = new TableInfo();
+        tableInfo.setRows(res);
+        return JSON.toJSONString(tableInfo);
+    }
+
+   @ResponseBody
+   @RequestMapping(value = "/counselorResult/load",method = RequestMethod.GET)
+   public String Counselorload(){
+       List<CounselorResult> list = counselorQsMapper.counselorSearch();
+       List<Map<String, Object>> res = new ArrayList<>();
+       int i=0;
+       for(CounselorResult tempList:list){
+           Map<String,Object> map =new HashMap<>();
+           map.put("no",++i);
+           map.put("value", tempList);
+           res.add(map);
+       }
+       TableInfo tableInfo = new TableInfo();
+       tableInfo.setRows(res);
+       return JSON.toJSONString(tableInfo);
+   }
+    @ResponseBody
+    @RequestMapping(value = "/learningResult/load",method = RequestMethod.GET)
+    public String Learningload(@RequestParam(value = "institutename",required = false) String institutename){
+       learningQsMapper.learningResult(institutename);
+        List<Result> list = learningQsMapper.selectLearningResult();
+        List<Map<String, Object>> res = new ArrayList<>();
+        int i=0;
+        for(Result tempList:list){
+            Map<String,Object> map =new HashMap<>();
+            map.put("no",++i);
+            map.put("value", tempList);
+            res.add(map);
+        }
+        TableInfo tableInfo = new TableInfo();
+        tableInfo.setRows(res);
+        return JSON.toJSONString(tableInfo);
+    }
+
+
+
     class TableInfo{
         List<Map<String,Object>> rows;
 

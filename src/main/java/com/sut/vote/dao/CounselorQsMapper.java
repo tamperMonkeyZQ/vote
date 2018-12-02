@@ -1,6 +1,9 @@
 package com.sut.vote.dao;
 
 import com.sut.vote.models.CounselorQs;
+import com.sut.vote.models.CounselorResult;
+
+import java.util.List;
 
 public interface CounselorQsMapper {
     /**
@@ -42,4 +45,5 @@ public interface CounselorQsMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(CounselorQs record);
+    List<CounselorResult> counselorSearch();
 }

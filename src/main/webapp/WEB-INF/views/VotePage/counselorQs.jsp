@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>沈阳工业大学本科生心理健康教育工作调查问卷</h2>
+        <h2>沈阳工业大学本科生辅导员满意度调查问卷</h2>
         <ol class="breadcrumb">
             <li>
                 <a>问卷查询</a>
             </li>
             <li class="active">
-                <strong>沈阳工业大学本科生职业生涯规划的满意度调查问卷</strong>
+                <strong>沈阳工业大学本科生辅导员满意度调查问卷</strong>
             </li>
             <select id = "institute">
                 <option>--请选择--</option>
@@ -476,12 +476,12 @@
         arr[1] = new Array("李想","于惠舒","刘伟南","张蜜蜜","杨宇航");
         arr[2] = new Array("孟奇恺","彭波","鲁万鹏","盖世臣","马梦瑶","陈东昌","石添元","赵慧美","刘玉君","邱梦凡");
         arr[3] = new Array("姚勇","王春艳","李响","龙飞","李政","宋昱璇","张怡","马思源","张佳民","李明旭");
-        arr[4] = new Array("吕庆涛","宋岱岳","林爽","庄喆","李大业","韩双宇");
-        arr[5] = new Array("任大林","李青山","梁希妹","徐畅","赵骏倢","崔琨");
-        arr[6] = new Array("郭玲","梁朋","武宁","关娜","周翰伯");
-        arr[7] = new Array("杜振君","陈文波","田晓辉","陈蕊","艾明珠","牟春景");
-        arr[8] = new Array("付博文","辛显华","卢海章","杨宁宁","王红红","肇辛格");
-        arr[9] = new Array("董润芸","何剑非","王晓茜");
+        arr[4] = new Array("杜振君","陈文波","田晓辉","陈蕊","艾明珠","牟春景");
+        arr[5] = new Array("付博文","辛显华","卢海章","杨宁宁","王红红","肇辛格");
+        arr[6] = new Array("吕庆涛","宋岱岳","林爽","庄喆","李大业","韩双宇");
+        arr[7] = new Array("任大林","李青山","梁希妹","徐畅","赵骏倢","崔琨");
+        arr[8] = new Array("董润芸","何剑非","王晓茜");
+        arr[9] = new Array("郭玲","梁朋","武宁","关娜","周翰伯");
         arr[10] = new Array("张岩","冀录","张金龙");
         arr[11] = new Array("郝艳君","薛政","李函书","张涛","于雅洁","王伟","肖博","张晋源");
         $("#institute").change(function(){

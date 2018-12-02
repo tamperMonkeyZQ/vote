@@ -105,4 +105,14 @@
       C_FIF_QUE = #{cFifQue,jdbcType=VARCHAR}
     where C_CODE = #{cCode,jdbcType=VARCHAR}
   </update>
+  <select id="professionalSearch" resultType="com.sut.vote.models.CounselorResult">
+    SELECT
+    CONVERT(sum(c_score) / count(*),DECIMAL(4,2)) as avg ,
+    C_INSTITUTE_NAME AS name,
+    avg(TRUNCATE(c_fif_que,0)) as percent
+    FROM
+    professional_assessment
+    GROUP BY
+    C_INSTITUTE_NAME
+  </select>
 </mapper>

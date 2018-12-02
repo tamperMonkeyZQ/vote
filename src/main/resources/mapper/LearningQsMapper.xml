@@ -353,4 +353,10 @@
       C_TWE_THR_QUE = #{cTweThrQue,jdbcType=VARCHAR}
     where C_CODE = #{cCode,jdbcType=VARCHAR}
   </update>
+  <select id="learningResult" parameterType="java.lang.String">
+    call learningResult(#{institutename,jdbcType=VARCHAR});
+  </select>
+  <select id="selectLearningResult" resultType="com.sut.vote.models.Result">
+    select * from result_men;
+  </select>
 </mapper>

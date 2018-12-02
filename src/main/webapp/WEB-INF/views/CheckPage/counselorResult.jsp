@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>沈阳工业大学本科生心理健康教育工作调查问卷</h2>
+        <h2>沈阳工业大学本科生辅导员工作调查问卷</h2>
         <ol class="breadcrumb">
             <li>
                 <a>问卷查询</a>
             </li>
             <li class="active">
-                <strong>沈阳工业大学本科生心理健康教育工作调查问卷</strong>
+                <strong>沈阳工业大学本科生辅导员工作调查问卷</strong>
             </li>
+
         </ol>
     </div>
     <div class="col-lg-2">
@@ -16,6 +17,7 @@
     </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
+<table id="test-table" class="table table-hover table-striped table-condensed table-bordered"></table>
 <!-- Mainly scripts -->
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
@@ -46,7 +48,7 @@
             url: "/counselorResult/load",
             cache : false,
             striped : true,
-            pagination : true, //在表格底部显示分页工具栏
+            pagination : false, //在表格底部显示分页工具栏
             pageSize : 10, //默认每页条数
             pageNumber : 1, //默认分页
             pageList : [ 10, 20, 50, 100, 200, 500 ],//分页数
@@ -60,15 +62,15 @@
             sidePagination : "server", //表示服务端请求
             columns : [
                 {
-                    field : "value.ins",
-                    title : "学院名",
+                    field : "no",
+                    title : "",
                     class : 'col-md-1',
                     align : "center",
                     valign : "middle",
                     sortable : "true"
                 },
                 {
-                    field : "value.tech",
+                    field : "value.name",
                     title : "教师名",
                     class : 'col-md-1',
                     align : "center",
@@ -76,7 +78,7 @@
                     sortable : "true"
                 },
                 {
-                    field : "value.score",
+                    field : "value.avg",
                     title : "平均分",
                     class : 'col-md-1',
                     align : "center",
@@ -84,16 +86,8 @@
                     sortable : "true"
                 },
                 {
-                    field : "value.a",
-                    title : "11题A选项比例",
-                    class : 'col-md-1',
-                    align : "center",
-                    valign : "middle",
-                    sortable : "true"
-                },
-                {
-                    field : "value.b",
-                    title : "11题B选项比例",
+                    field : "value.percent",
+                    title : "11题A、B选项比例",
                     class : 'col-md-1',
                     align : "center",
                     valign : "middle",

@@ -164,7 +164,7 @@
   <select id = "selectResult" resultType="com.sut.vote.models.Result">
     select * from result_men
   </select>
-  <select id="processCalc">
-    call men_calc()
+  <select id="processCalc" parameterType="java.lang.String">
+    call mental_calc(#{institutename,jdbcType = VARCHAR})
   </select>
 </mapper>

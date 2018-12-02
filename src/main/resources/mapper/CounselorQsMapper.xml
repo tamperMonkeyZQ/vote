@@ -116,4 +116,14 @@
       C_ELE_QUE = #{cEleQue,jdbcType=VARCHAR}
     where C_CODE = #{cCode,jdbcType=VARCHAR}
   </update>
+  <select id="counselorSearch" resultType="com.sut.vote.models.CounselorResult">
+    SELECT
+    CONVERT(sum(c_score) / count(*),DECIMAL(4,2)) as avg ,
+     C_TECH_NAME AS name,
+     avg(TRUNCATE(c_ele_que,0)) as percent
+     FROM
+     counselor_evaluation
+     GROUP BY
+     C_TECH_NAME
+  </select>
 </mapper>

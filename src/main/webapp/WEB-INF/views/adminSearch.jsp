@@ -75,7 +75,7 @@
 
             </nav>
         </div>
-        <jsp:include page="CheckPage/${VotePage}.jsp"></jsp:include>
+        <jsp:include page="CheckPage/${CheckPage}.jsp"></jsp:include>
         <div class="footer">
             <div class="pull-right">
                 沈阳工业大学
@@ -105,24 +105,14 @@
 <script src="/static/js/plugins/iCheck/icheck.min.js"></script>
 <script>
     $(document).ready(function () {
+                var institute;
                $('.i-checks').iCheck({
                    checkboxClass: 'icheckbox_square-green',
                    radioClass: 'iradio_square-green',
                });
            });
-       $("#submit").click(function(){
-       var institute = $("#institute").val();
-       });
-       $.ajax({
-       type: "POST",
-           url: "/submit",
-           data: JSON.stringify(institute),
-           contentType:"application/json",
-           dataType: "text",
-           success: function(data) {
-               alert(data.trim());
-           }
-       });
+      
+
 </script>
 </body>
 </html>

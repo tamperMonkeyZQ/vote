@@ -24,22 +24,14 @@
     <div class="row">
 
         <div class="col-md-6">
-            <h2 class="font-bold">demo</h2>
+            <h2 class="font-bold">学生工作考核问卷调查系统</h2>
 
             <p>
-                designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+                填表说明：1.本问卷调查系统共包括4组问卷，点击左上角图标切换4组问卷，依次作答4组问卷所有题目并提交。
             </p>
 
             <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-            </p>
-
-            <p>
-                When an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-
-            <p>
-                <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
+                2.第四组问卷（辅导员考核学生测评表），答题前需在问卷上方选择所在学院和辅导员。
             </p>
 
         </div>

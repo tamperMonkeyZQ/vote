@@ -18,16 +18,13 @@
                        <option value = "管理学院">管理学院</option>
                        <option value = "文法学院">文法学院</option>
                        <option value = "理学院">理学院</option>
-                       <option value = "建筑与土木工程学院>建筑与土木工程学院</option>
+                       <option value = "建筑与土木工程学院">建筑与土木工程学院</option>
                        <option value = "外国语学院">外国语学院</option>
                        <option value = "经济学院">经济学院</option>
                        <option value = "国际交流中心">国际交流中心</option>
                        <option value = "软件学院">软件学院</option>
                        </select>
                        <div class="form-group">
-                       <div class="col-sm-4 col-sm-offset-0">
-                           <button id="submit" class="btn btn-primary">提交</button>
-                       </div>
         </ol>
     </div>
     <div class="col-lg-2">
@@ -122,4 +119,66 @@
 
         });
     });
+        $("#institute").change(function(){
+        var str = $("#institute").val();
+         $("#test-table").bootstrapTable('destroy');
+                $('#test-table').bootstrapTable({
+                    method : 'GET',
+                    url: encodeURI("/mentalResult/load?institutename="+str),
+                    cache : false,
+                    striped : true,
+                    pagination : false, //在表格底部显示分页工具栏
+                    pageSize : 10, //默认每页条数
+                    pageNumber : 1, //默认分页
+                    pageList : [ 10, 20, 50, 100, 200, 500 ],//分页数
+                    showColumns : false, //显示隐藏列
+                    showRefresh : false, //显示刷新按钮
+                    showExport : false,
+                    singleselect : true,
+                    clickToSelect: true, // 单击行即可以选中
+                    search : false,//显示搜素表单
+                    silent : true, //刷新事件必须设置
+                    sidePagination : "server", //表示服务端请求
+                    columns : [
+                        {
+                            field : "no",
+                            title : "",
+                            class : 'col-md-1',
+                            align : "center",
+                            valign : "middle",
+                            sortable : "true"
+                        },
+                        {
+                            field : "value.a",
+                            title : "A选项比例",
+                            class : 'col-md-1',
+                            align : "center",
+                            valign : "middle",
+                            sortable : "true"
+                        }],
+                    queryParamsType: "undefined",
+                    queryParams: function queryParams(params) {   //设置查询参数
+                        //var x = $("#myId").val();
+                        var param = {
+                            pageNumber: params.pageNumber,
+                            pageSize: params.pageSize,
+                            //myId: x,
+                            // searchText: params.searchText
+                        };
+                        return param;
+                    },
+                    formatLoadingMessage : function() {
+                        return "请稍等，正在加载中...";
+                    },
+
+                    formatNoMatches : function() {
+                        return '无符合条件的记录';
+                    },
+                    //注册加载子表的事件。注意下这里的三个参数！
+                    onExpandRow: function (index, row, $detail) {
+                        oInit.InitSubTable(index, row, $detail);
+                    }
+
+                });
+        });
 </script>
